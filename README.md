@@ -1,2 +1,2 @@
 # Autumn
-EasyUI 布局生成器
+EasyUI 代码生成工具包
