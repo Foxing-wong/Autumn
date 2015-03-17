@@ -1,11 +1,13 @@
-package us.cijian.autumn;
+package us.cijian.autumn.utils;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-import us.cijian.autumn.Resource;
+import us.cijian.autumn.model.Resource;
 
 public final class FileReader {
+	
+	private final static String TEMPLATE_DIRECTORY = "main/resources/template/";
 
 	private final static ClassLoader LOADER = Resource.class.getClassLoader();
 
@@ -24,7 +26,7 @@ public final class FileReader {
 	}
 
 	private final static InputStream getInputStream(final String resourceName) {
-		return LOADER.getResourceAsStream(Resource.TEMPLATE_DIRECTORY + resourceName);
+		return LOADER.getResourceAsStream(TEMPLATE_DIRECTORY + resourceName);
 	}
 
 	public static String template(Resource res) {
