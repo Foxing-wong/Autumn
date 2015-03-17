@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+        http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <!-- <icon>
+        <small-icon>/images/app_small.gif</small-icon>
+        <large-icon>/images/app_large.gif</large-icon>
+    </icon> -->
+    <display-name>一号店网盟内部交流</display-name>
+    <servlet>
+        <servlet-name>autumn</servlet-name>
+        <servlet-class>us.cijian.autumn.servlet.AutumnServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>autumn</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/asserts</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.ico</url-pattern>
+    </servlet-mapping>
+</web-app>
