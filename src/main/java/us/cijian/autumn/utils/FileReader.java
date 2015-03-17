@@ -12,10 +12,6 @@ public final class FileReader {
 
     private final static int BUFFER_SIZE = 2048;
 
-    public static final String get(Resource res) throws IOException {
-        return get(res.name());
-    }
-
     public static final String get(String res) throws IOException {
         StringBuilder result = new StringBuilder();
         // 读取内容
@@ -29,13 +25,7 @@ public final class FileReader {
     }
 
     private final static InputStream getInputStream(final String resourceName) {
-        InputStream is = LOADER.getResourceAsStream(TEMPLATE_DIRECTORY + resourceName);
-        try {
-            Reader reader = new InputStreamReader(is, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return LOADER.getResourceAsStream(TEMPLATE_DIRECTORY + resourceName);
     }
 
     public static String name(String name) {

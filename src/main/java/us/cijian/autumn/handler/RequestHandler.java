@@ -1,5 +1,6 @@
 package us.cijian.autumn.handler;
 
+import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
 import us.cijian.autumn.config.Resource;
 
@@ -22,10 +23,11 @@ public class RequestHandler {
     }
 
     public synchronized static RequestHandler getInstance(HttpServletRequest req, HttpServletResponse res) {
+        res.setCharacterEncoding("UTF-8");
         return new RequestHandler(req, res);
     }
 
-    public void deal() {
+    public void deal(Configuration cfg) {
         String uri = request.getRequestURI().toUpperCase();
         Resource template = null;
         if(uri.length() > 1){
@@ -38,7 +40,7 @@ public class RequestHandler {
             template = Resource.INDEX;
         }
         try {
-            template.out(response);
+            template.out(response.getWriter(), cfg);
         } catch (TemplateException e) {
             response.setStatus(503);
         } catch (IOException e) {
