@@ -4,9 +4,9 @@ import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
 import us.cijian.autumn.config.Resource;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Created by luohao4 on 2015/3/17.
@@ -14,47 +14,46 @@ import java.io.IOException;
 public class RequestHandler {
 
     private Configuration config;
-    private HttpServletRequest request;
-    private HttpServletResponse response;
 
-    public RequestHandler(HttpServletRequest request, HttpServletResponse response, Configuration config) {
+    public RequestHandler(Configuration config) {
         this.config = config;
-        this.request = request;
-        this.response = response;
     }
 
-    public synchronized static RequestHandler getInstance(HttpServletRequest req, HttpServletResponse res, Configuration cfg) {
-        res.setCharacterEncoding("UTF-8");
-        return new RequestHandler(req, res, cfg);
+    public synchronized static RequestHandler getInstance(Configuration cfg) {
+        return new RequestHandler(cfg);
     }
 
-    public void response() {
-        String uri = request.getRequestURI().toUpperCase();
-        Resource template = null;
-        if(uri.length() > 1){
-            try {
-                template = Resource.valueOf(dealUri(uri));
-            } catch (IllegalArgumentException e) {
-                response.setStatus(404);
-            }
-        } else {
-            template = Resource.INDEX;
-        }
+    public void response(String uri, HttpServletResponse response) {
+        PrintWriter pr = null;
+        response.setCharacterEncoding("UTF-8");
         try {
-            out(template);
-        } catch (TemplateException e) {
-            response.setStatus(503);
+            Resource template;
+            pr = response.getWriter();
+            if(uri.length() > 1){
+                template = Resource.valueOf(dealUri(uri));
+            } else {
+                template = Resource.INDEX;
+            }
+            write(template, pr);
         } catch (IOException e) {
             response.setStatus(500);
+            pr.println("<h1>500</h1>");
+        } catch (IllegalArgumentException e) {
+            response.setStatus(404);
+            pr.println("<h1>404</h1>");
         }
     }
 
     private final String dealUri(String uri){
-        return uri.substring(1).replace("/", "_");
+        return uri.toUpperCase().substring(1).replace("/", "_");
     }
 
-    private final void out(Resource res) throws IOException, TemplateException {
-        config.getTemplate(res.ftl()).process(null, response.getWriter());
+    private final void write(Resource res, PrintWriter pr) {
+        try {
+            config.getTemplate(res.ftl()).process(null, pr);
+        } catch (Exception e) {
+            pr.println("<h1>500</h1>");
+        }
     }
 
 }

@@ -34,10 +34,10 @@ public class AutumnServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        RequestHandler.getInstance(req, res, cfg).response();
+        RequestHandler.getInstance(cfg).response(req.getRequestURI(), res);
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        RequestHandler.getInstance(req, res, cfg).response();
+        RequestHandler.getInstance(cfg).response(req.getRequestURI(), res);
     }
 }
