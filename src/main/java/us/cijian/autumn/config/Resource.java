@@ -16,10 +16,8 @@ public enum Resource {
     INDEX;
 
     public final void out(PrintWriter writer, Configuration cfg) throws IOException, TemplateException {
-        Template template = cfg.getTemplate(FileReader.name(this));
-        template.setEncoding("UTF-8");
         try{
-            template.process(null, writer);
+            cfg.getTemplate(FileReader.name(this)).process(null, writer);
         }catch(Exception ex){
             ex.printStackTrace();
         }
