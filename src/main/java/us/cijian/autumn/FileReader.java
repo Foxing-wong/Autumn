@@ -5,7 +5,7 @@ import java.io.InputStream;
 
 import us.cijian.autumn.Resource;
 
-public final class FileReader {
+final class FileReader {
 
 	private final static ClassLoader LOADER = Resource.class.getClassLoader();
 
