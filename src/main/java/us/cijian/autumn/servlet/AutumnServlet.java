@@ -14,10 +14,10 @@ import java.io.IOException;
 public class AutumnServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        RequestHandler.getInstance(req, res);
+        RequestHandler.getInstance(req, res).deal();
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        RequestHandler.getInstance(req, res);
+        RequestHandler.getInstance(req, res).deal();
     }
 }
