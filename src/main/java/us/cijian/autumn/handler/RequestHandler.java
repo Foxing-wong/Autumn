@@ -7,27 +7,28 @@ import us.cijian.autumn.config.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * Created by luohao4 on 2015/3/17.
  */
 public class RequestHandler {
 
+    private Configuration config;
     private HttpServletRequest request;
     private HttpServletResponse response;
 
-    public RequestHandler(HttpServletRequest request, HttpServletResponse response) {
+    public RequestHandler(HttpServletRequest request, HttpServletResponse response, Configuration config) {
+        this.config = config;
         this.request = request;
         this.response = response;
     }
 
-    public synchronized static RequestHandler getInstance(HttpServletRequest req, HttpServletResponse res) {
+    public synchronized static RequestHandler getInstance(HttpServletRequest req, HttpServletResponse res, Configuration cfg) {
         res.setCharacterEncoding("UTF-8");
-        return new RequestHandler(req, res);
+        return new RequestHandler(req, res, cfg);
     }
 
-    public void deal(Configuration cfg) {
+    public void response() {
         String uri = request.getRequestURI().toUpperCase();
         Resource template = null;
         if(uri.length() > 1){
@@ -40,7 +41,7 @@ public class RequestHandler {
             template = Resource.INDEX;
         }
         try {
-            template.out(response.getWriter(), cfg);
+            out(template);
         } catch (TemplateException e) {
             response.setStatus(503);
         } catch (IOException e) {
@@ -50,6 +51,10 @@ public class RequestHandler {
 
     private final String dealUri(String uri){
         return uri.substring(1).replace("/", "_");
+    }
+
+    private final void out(Resource res) throws IOException, TemplateException {
+        config.getTemplate(res.ftl()).process(null, response.getWriter());
     }
 
 }
