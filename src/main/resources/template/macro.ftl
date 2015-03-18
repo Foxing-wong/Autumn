@@ -10,6 +10,8 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel="icon" href="asserts/img/favico.png" type="image/x-icon">
+    <link rel="shortcut icon" href="asserts/img/favico.png" type="image/x-icon">
     <link rel="stylesheet" href="asserts/css/pure.min.css"/>
     <link rel="stylesheet" href="asserts/css/fonts.css">
     <!--[if lte IE 8]>
