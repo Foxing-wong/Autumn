@@ -31,10 +31,9 @@
     </a>
     <div id="menu">
         <div class="pure-menu">
-            <a class="pure-menu-heading" href="#">Autumn</a>
+            <a class="pure-menu-heading" href="/">Autumn</a>
 
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">概述</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">通用</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">jQuery</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">easyui</a></li>
