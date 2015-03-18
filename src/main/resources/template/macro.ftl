@@ -1,4 +1,4 @@
-<#macro header title="记在收获的季节 | 驰骋岁月，以梦为马，诗酒趁年华">
+<#macro header title="记在收获的季节 | 以梦为马，诗酒趁年华">
 <!doctype html>
 <html lang="zh_CN">
 <head prefix="og: http://ogp.me/ns#">
@@ -31,7 +31,7 @@
     </a>
     <div id="menu">
         <div class="pure-menu">
-            <a class="pure-menu-heading" href="/">Autumn</a>
+            <a class="pure-menu-heading" href="https://github.com/MurphyL/Autumn" target="_blank">Autumn</a>
 
             <ul class="pure-menu-list">
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">通用</a></li>
