@@ -10,15 +10,15 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link rel="icon" href="asserts/img/favico.png" type="image/x-icon">
-    <link rel="shortcut icon" href="asserts/img/favico.png" type="image/x-icon">
-    <link rel="stylesheet" href="asserts/css/pure.min.css"/>
-    <link rel="stylesheet" href="asserts/css/fonts.css">
+    <link rel="icon" href="assets/img/favico.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/img/favico.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/pure.min.css"/>
+    <link rel="stylesheet" href="assets/css/fonts.css">
     <!--[if lte IE 8]>
-    <link rel="stylesheet" href="asserts/css/side-menu-old-ie.css">
+    <link rel="stylesheet" href="assets/css/side-menu-old-ie.css">
     <![endif]-->
     <!--[if gt IE 8]><!-->
-    <link rel="stylesheet" href="asserts/css/side-menu.css">
+    <link rel="stylesheet" href="assets/css/side-menu.css">
     <!--<![endif]-->
     <#nested>
 </head>
@@ -48,8 +48,8 @@
 <#macro footer>
     </div>
 </div>
-<script src="asserts/js/jquery.js"></script>
-<script src="asserts/js/ui.js"></script>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/ui.js"></script>
 <#nested>
 </body>
 </html>
