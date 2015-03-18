@@ -1,7 +1,6 @@
 package us.cijian.autumn.handler;
 
 import freemarker.template.Configuration;
-import freemarker.template.TemplateException;
 import us.cijian.autumn.config.Resource;
 
 import javax.servlet.http.HttpServletResponse;
@@ -50,10 +49,15 @@ public class RequestHandler {
 
     private final void write(Resource res, PrintWriter pr) {
         try {
-            config.getTemplate(res.ftl()).process(null, pr);
+            String fileName = getFileName(res);
+            config.getTemplate(fileName).process(null, pr);
         } catch (Exception e) {
             pr.println("<h1>500</h1>");
         }
+    }
+
+    public String getFileName(Resource res) {
+        return res.name().toLowerCase() + ".ftl";
     }
 
 }
