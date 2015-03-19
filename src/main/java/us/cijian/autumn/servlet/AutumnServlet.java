@@ -19,8 +19,6 @@ public class AutumnServlet extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        System.setProperty("file.encoding", Project.ENCODING);
-        MyBatisContext.initMyBatisContext();
         cfg = new Configuration();
         cfg.setServletContextForTemplateLoading(getServletContext(), Project.FTL_PATH);
     }

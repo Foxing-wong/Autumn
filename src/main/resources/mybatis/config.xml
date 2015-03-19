@@ -11,18 +11,27 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://192.168.33.10:3306/cijianus_double?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect "/>
+                <property name="url" value="jdbc:mysql://192.168.33.10:3306/cijianus_double?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
                 <property name="username" value="cijianus_double"/>
                 <property name="password" value="cijianus_double"/>
+            </dataSource>
+        </environment>
+        <environment id="work">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://10.161.138.15:3307/union_db?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
+                <property name="username" value="union_user"/>
+                <property name="password" value="union_user"/>
             </dataSource>
         </environment>
         <environment id="production">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://SAE_MYSQL_HOST_M:SAE_MYSQL_PORT/SAE_MYSQL_DB?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect "/>
-                <property name="username" value="SAE_MYSQL_USER"/>
-                <property name="password" value="SAE_MYSQL_PASS"/>
+                <property name="url" value="jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_unionyhd?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
+                <property name="username" value="knj53zl1n3"/>
+                <property name="password" value="435hy1j2354j025z0jxlkm5yz5mwmx1i1m20x0ii"/>
             </dataSource>
         </environment>
     </environments>

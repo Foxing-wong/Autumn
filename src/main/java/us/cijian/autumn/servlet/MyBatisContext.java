@@ -4,8 +4,6 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import us.cijian.autumn.config.Project;
-import us.cijian.autumn.config.Resource;
-import us.cijian.autumn.dal.AbstractDal;
 import us.cijian.autumn.utils.StringUtils;
 
 import java.io.IOException;

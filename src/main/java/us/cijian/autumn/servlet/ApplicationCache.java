@@ -3,6 +3,11 @@ package us.cijian.autumn.servlet;
 import org.apache.ibatis.session.Configuration;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import us.cijian.autumn.pojo.Setting;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Murphy on 3/18/2015.
@@ -18,11 +23,11 @@ public final class ApplicationCache {
         return Inner.ourInstance;
     }
 
-    public SqlSession openSqlSession(){
+    public SqlSession openSqlSession() {
         return sqlSessionFactory.openSession();
     }
 
-    public Configuration getSqlConfiguration(){
+    public Configuration getSqlConfiguration() {
         return sqlSessionFactory.getConfiguration();
     }
 
