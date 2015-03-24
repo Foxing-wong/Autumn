@@ -5,9 +5,7 @@ package us.cijian.autumn.config;
  */
 public enum Resource {
 
-    INDEX();
-
-    Resource() {
-    }
+    INDEX,
+    STARTED;
 
 }

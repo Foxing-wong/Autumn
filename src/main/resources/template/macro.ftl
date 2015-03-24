@@ -34,7 +34,7 @@
             <a class="pure-menu-heading" href="https://github.com/MurphyL/Autumn" target="_blank">Autumn</a>
 
             <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">通用</a></li>
+                <li class="pure-menu-item"><a href="/started" class="pure-menu-link">通用</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">jQuery</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">easyui</a></li>
                 <li class="pure-menu-item"><a href="#" class="pure-menu-link">moment.js</a></li>
