@@ -23,23 +23,19 @@ public class RequestHandler {
     }
 
     public void response(String uri, HttpServletResponse response) {
-        PrintWriter pr = null;
         response.setCharacterEncoding("UTF-8");
         try {
             Resource template;
-            pr = response.getWriter();
             if(uri.length() > 1){
                 template = Resource.valueOf(dealUri(uri));
             } else {
                 template = Resource.INDEX;
             }
-            write(template, pr);
+            write(template, response.getWriter());
         } catch (IOException e) {
             response.setStatus(500);
-            pr.println("<h1>500</h1>");
         } catch (IllegalArgumentException e) {
             response.setStatus(404);
-            pr.println("<h1>404</h1>");
         }
     }
 
