@@ -17,11 +17,9 @@ public class BootstrapListener implements ServletContextListener {
     @Override
     public void contextInitialized(ServletContextEvent sce) {
 
-        System.out.println("上下文初始化中~");
-
         System.setProperty("file.encoding", Project.ENCODING);
-        MyBatisUtils.initMyBatisContext();
 
+        MyBatisUtils.initMyBatisContext();
         SettingsMapper sm = MyBatisUtils.getMapper(SettingsMapper.class);
         List<Setting> settings = sm.fetchAll();
         for (Setting setting : settings) {
