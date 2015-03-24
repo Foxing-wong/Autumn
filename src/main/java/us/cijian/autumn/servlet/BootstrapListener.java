@@ -21,7 +21,7 @@ public class BootstrapListener implements ServletContextListener {
 
         MyBatisUtils.initMyBatisContext();
         SettingsMapper sm = MyBatisUtils.getMapper(SettingsMapper.class);
-        List<Setting> settings = sm.fetchAll();
+        List<Setting> settings = sm.getByType("wechat");
         for (Setting setting : settings) {
             Wechat.valueOf(setting.getName()).setVal(setting.getVal());
         }

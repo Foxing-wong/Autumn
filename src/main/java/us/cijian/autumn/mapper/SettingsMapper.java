@@ -1,5 +1,6 @@
 package us.cijian.autumn.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import us.cijian.autumn.pojo.Setting;
 
 import java.util.List;
@@ -9,6 +10,6 @@ import java.util.List;
  */
 public interface SettingsMapper {
 
-    List<Setting> fetchAll();
+    List<Setting> getByType(@Param("type")String type);
 
 }
