@@ -1,8 +1,8 @@
 <#include "macro.ftl">
 <@header />
     <div class="header">
-        <h1>记在收获的季节</h1>
-        <h2>以梦为马，诗酒趁年华</h2>
+        <h1 class="ldbx">记在收获的季节</h1>
+        <h2 class="ldbx">以梦为马，诗酒趁年华</h2>
     </div>
     <div class="content">
         <h2 class="content-subhead"><b>What</b> —— 这是个什么玩意</h2>

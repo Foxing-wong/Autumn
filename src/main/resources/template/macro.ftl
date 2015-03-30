@@ -49,6 +49,7 @@
     </div>
 </div>
 <script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.md5.js"></script>
 <script src="assets/js/ui.js"></script>
 <#nested>
 </body>
