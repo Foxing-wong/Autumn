@@ -9,11 +9,11 @@
 
 @font-face {
     font-family: 'LiDeBiao';
-    src: url('../img/lidebiao.bmp') format('woff');
+    src: url('../fonts/debiao.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-.ldbx {
+.ldb {
     font-family: LiDeBiao;
 }

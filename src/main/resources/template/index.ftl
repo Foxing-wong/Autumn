@@ -1,8 +1,8 @@
 <#include "macro.ftl">
 <@header />
     <div class="header">
-        <h1 class="ldbx">记在收获的季节</h1>
-        <h2 class="ldbx">以梦为马，诗酒趁年华</h2>
+        <h1 class="ldb">记在收获的季节</h1>
+        <h2 class="ldb">以梦为马，诗酒趁年华</h2>
     </div>
     <div class="content">
         <h2 class="content-subhead"><b>What</b> —— 这是个什么玩意</h2>
@@ -28,11 +28,11 @@
 
         <h3 class="content-subhead">最后，不愿页面上有太多的留白，就罗列一些我喜欢的话：</h3>
         <ol>
-            <li>躬自厚而薄责于人，则远怨矣。</li>
-            <li>驰骋岁月，以梦为马，诗酒趁年华！</li>
-            <li>周而不比，和而不同；养心如兰，素心如葵。</li>
-            <li>优于别人并不高贵。真正的高贵，是优于过去的自己。</li>
-            <li>会心之余，当以不解解之；无稽之言，是在不听听耳。</li>
+            <li class="ldb">躬自厚而薄责于人，则远怨矣。</li>
+            <li class="ldb">驰骋岁月，以梦为马，诗酒趁年华！</li>
+            <li class="ldb">周而不比，和而不同；养心如兰，素心如葵。</li>
+            <li class="ldb">优于别人并不高贵。真正的高贵，是优于过去的自己。</li>
+            <li class="ldb">会心之余，当以不解解之；无稽之言，是在不听听耳。</li>
         </ol>
     </div>
 <@footer />

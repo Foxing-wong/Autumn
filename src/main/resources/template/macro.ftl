@@ -14,6 +14,8 @@
     <link rel="shortcut icon" href="assets/img/favico.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/pure.min.css"/>
     <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/grids-responsive-min.css">
+    <link rel="stylesheet" href="assets/css/baby-blue.css">
     <!--[if lte IE 8]>
     <link rel="stylesheet" href="assets/css/side-menu-old-ie.css">
     <![endif]-->
@@ -49,7 +51,6 @@
     </div>
 </div>
 <script src="assets/js/jquery.js"></script>
-<script src="assets/js/jquery.md5.js"></script>
 <script src="assets/js/ui.js"></script>
 <#nested>
 </body>
