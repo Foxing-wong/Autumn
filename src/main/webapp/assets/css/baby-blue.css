@@ -899,6 +899,7 @@ code {
 }
 
 code {
+    margin: 0.1em;
     padding: 0.2em 0.4em;
     white-space: nowrap;
 }
