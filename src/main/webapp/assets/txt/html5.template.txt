@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>简单的 HTML 文档</title>
+</head>
+<body>
+    <!-- 这只是综合个人习惯归纳（准确的说是抄袭）出来的一份 HTML 模版，它只满足大多数情况下的应用场景，使用时请对照上文的按照自己的需求进行修改。 -->
+</body>
+</html>
