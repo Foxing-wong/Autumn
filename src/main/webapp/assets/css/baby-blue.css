@@ -987,14 +987,6 @@ code {
     box-sizing: content-box;
 }
 
-.pure-button {
-    font-family: inherit;
-}
-
-a.pure-button-primary {
-    color: white;
-}
-
 /* green call to action button class */
 .notice {
     background-color: #61B842;
@@ -1110,24 +1102,6 @@ a.pure-button-primary {
     .content .l-wrap {
         margin-left: -2em;
         margin-right: -2em;
-    }
-
-    .header,
-    .content {
-        padding-left: 2em;
-        padding-right: 2em;
-    }
-
-    .header h1 {
-        font-size: 320%;
-    }
-
-    .header h2 {
-        font-size: 128%;
-    }
-
-    .content p {
-        font-size: 1.125em;
     }
 
     .code {

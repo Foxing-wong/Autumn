@@ -31,6 +31,8 @@
     <pre class="code code-wrap" data-language="html">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     </pre>
-    <p class="p">综合上述的关键内容，一份基础的 HTML 文档大概是<a href="assets/txt/html5.template.txt" target="_blank" title="戳我查看完整的模版">这个样子</a>的。</p>
+    <p class="p">
+        综合上述的关键内容，一份基础的 HTML 文档大概是 <a class="pure-button" href="assets/txt/html5.template.txt" target="_blank" title="戳我查看完整的模版">这个样子</a> 的。
+    </p>
 </div>
 <@footer />

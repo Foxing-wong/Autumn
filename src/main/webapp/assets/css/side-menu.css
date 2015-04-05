@@ -262,3 +262,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 .p {
     text-indent: 2em;
 }
+
+.pure-button {
+    text-indent: 0;
+}
