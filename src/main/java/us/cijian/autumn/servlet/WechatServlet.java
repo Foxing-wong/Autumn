@@ -20,10 +20,6 @@ import java.util.List;
  */
 public class WechatServlet extends HttpServlet {
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        dealRequest(req, res);
-    }
-
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         dealRequest(req, res);
     }

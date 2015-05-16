@@ -14,6 +14,8 @@ public final class SignUtils {
     private SignUtils() {
     }
 
+    private static final char[] DIGIT = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
     private static String token = Wechat.TONKEN.getVal();
 
     /**
@@ -66,10 +68,9 @@ public final class SignUtils {
      * @return
      */
     private static String byteToHexStr(byte mByte) {
-        char[] Digit = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F' };
         char[] tempArr = new char[2];
-        tempArr[0] = Digit[(mByte >>> 4) & 0X0F];
-        tempArr[1] = Digit[mByte & 0X0F];
+        tempArr[0] = DIGIT[(mByte >>> 4) & 0X0F];
+        tempArr[1] = DIGIT[mByte & 0X0F];
         String s = new String(tempArr);
         return s;
     }
