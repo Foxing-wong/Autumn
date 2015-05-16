@@ -1,19 +1,24 @@
 package us.cijian.autumn.servlet;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.util.IOUtils;
+import us.cijian.autumn.config.Project;
 import us.cijian.autumn.config.Wechat;
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.TextMessage;
+import us.cijian.autumn.pojo.WechatRequest;
 import us.cijian.autumn.utils.MessageUtils;
 import us.cijian.autumn.utils.SignUtils;
 import us.cijian.autumn.utils.StringUtils;
+import us.cijian.autumn.utils.TuringUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.Scanner;
 
 /**
  * Created by luohao4 on 2015/3/19.
@@ -31,43 +36,40 @@ public class WechatServlet extends HttpServlet {
     }
 
     private void dealGetRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        // 微信加密签名
-        String signature = req.getParameter("signature");
-        // 时间戳
-        String timestamp = req.getParameter("timestamp");
-        // 随机数
-        String nonce = req.getParameter("nonce");
-        // 随机字符串
-        String echostr = req.getParameter("echostr");
+        WechatRequest request = new WechatRequest(req);
         PrintWriter out = res.getWriter();
-        if (StringUtils.isBlank(signature)) {
-            for (Wechat wechat : Wechat.values()) {
+        if (StringUtils.isBlank(request.getSignature())) {
+            /*for (Wechat wechat : Wechat.values()) {
                 out.println(wechat.name() + " : " + wechat.getVal());
-            }
+            }*/
             return;
         }
         // 通过检验signature对请求进行校验，若校验成功则原样返回echostr，表示接入成功，否则接入失败
-        if (SignUtils.checkSignature(signature, timestamp, nonce)) {
-            out.print(echostr);
+        if (SignUtils.checkSignature(request)) {
+            out.print(request.getEchostr());
         }
     }
 
     public void dealPostRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
-        String msg = req.getParameter("msg");
         try {
-            Message message = MessageUtils.xml2Bean(Message.class, msg);
+            res.setCharacterEncoding(Project.ENCODING);
+            Message message = MessageUtils.xml2Bean(Message.class, req.getInputStream());
             if (null == message) {
                 return;
             }
+            Message wechatResponse;
             if (message.is(Message.Type.text)) {
-                Message response = new TextMessage();
-                response.setFromUserName(message.getToUserName());
-                response.setToUserName(message.getFromUserName());
-                response.setContent("Hello world");
+                String msg = TuringUtils.getServiceUrl(message.getContent());
+                wechatResponse = new TextMessage(message, msg);
+            } else {
+                wechatResponse = new TextMessage(message, TuringUtils.DEFAULT_MSG);
             }
+            String xml = MessageUtils.bean2Xml(wechatResponse);
+            res.getWriter().write(xml);
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+
     }
 
 }

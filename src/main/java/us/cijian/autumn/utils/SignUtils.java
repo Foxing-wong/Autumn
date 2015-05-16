@@ -1,6 +1,7 @@
 package us.cijian.autumn.utils;
 
 import us.cijian.autumn.config.Wechat;
+import us.cijian.autumn.pojo.WechatRequest;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -26,8 +27,8 @@ public final class SignUtils {
      * @param nonce
      * @return
      */
-    public static boolean checkSignature(String signature, String timestamp, String nonce) {
-        String[] arr = new String[] { token, timestamp, nonce };
+    public static boolean checkSignature(WechatRequest request) {
+        String[] arr = new String[]{token, request.getTimestamp(), request.getNonce()};
         // 将token、timestamp、nonce三个参数进行字典序排序
         Arrays.sort(arr);
         StringBuilder content = new StringBuilder();
@@ -44,7 +45,7 @@ public final class SignUtils {
             e.printStackTrace();
         }
         // 将sha1加密后的字符串可与signature对比，标识该请求来源于微信
-        return tmpStr != null ? tmpStr.equals(signature.toUpperCase()) : false;
+        return tmpStr != null ? tmpStr.equals(request.getSignature().toUpperCase()) : false;
     }
 
     /**
@@ -74,4 +75,5 @@ public final class SignUtils {
         String s = new String(tempArr);
         return s;
     }
+
 }

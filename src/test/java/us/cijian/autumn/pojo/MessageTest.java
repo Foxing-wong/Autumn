@@ -6,6 +6,7 @@ import org.junit.Test;
 import us.cijian.autumn.utils.MessageUtils;
 
 import javax.xml.bind.JAXBException;
+import java.io.IOException;
 
 /**
  * Created by MurphyL on 2015/5/16.
@@ -13,7 +14,7 @@ import javax.xml.bind.JAXBException;
 public class MessageTest {
 
     @Test
-    public void testConvert2XML() throws MessageCreationException, JAXBException {
+    public void testConvert2XML() throws MessageCreationException, JAXBException, IOException {
         Message message = new Message();
         message.setId("1");
         message.setContent("xasd");

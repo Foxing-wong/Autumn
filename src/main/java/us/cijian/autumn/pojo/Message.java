@@ -10,10 +10,6 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement(name = "xml")
 public class Message {
 
-    public Message() {
-        this.setCreateTime(System.currentTimeMillis());
-    }
-
     public enum Type {
         text,           // 文本消息
         image,          // 图片消息
@@ -25,6 +21,14 @@ public class Message {
         unsubscribe,    // 取消订阅事件
         CLICK,          // 按钮响应类型 - 消息
         VIEW            // 按钮响应类型 - 网页
+    }
+
+    public Message() {
+    }
+
+    protected Message(Type type) {
+        this.type = type.name();
+        this.setCreateTime(System.currentTimeMillis());
     }
 
     @XmlElement(name = "MsgId")
@@ -39,6 +43,8 @@ public class Message {
     private String fromUserName;
     @XmlElement(name = "CreateTime")
     private String createTime;
+    @XmlElement(name = "Encrypt")
+    private String encrypt;
 
     @XmlTransient
     public String getId() {
@@ -102,6 +108,14 @@ public class Message {
         this.createTime = String.valueOf(createTime);
     }
 
+    @XmlTransient
+    public String getEncrypt() {
+        return encrypt;
+    }
+
+    public void setEncrypt(String encrypt) {
+        this.encrypt = encrypt;
+    }
 
     public boolean is(Type type) {
         return type.name().equals(this.type);
