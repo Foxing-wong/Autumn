@@ -15,7 +15,16 @@ public class Message {
     }
 
     public enum Type {
-        text;
+        text,           // 文本消息
+        image,          // 图片消息
+        voice,          // 音频消息
+        link,           // 链接
+        location,       // 位置
+        event,          // 事件
+        subscribe,      // 订阅事件
+        unsubscribe,    // 取消订阅事件
+        CLICK,          // 按钮响应类型 - 消息
+        VIEW            // 按钮响应类型 - 网页
     }
 
     @XmlElement(name = "MsgId")
