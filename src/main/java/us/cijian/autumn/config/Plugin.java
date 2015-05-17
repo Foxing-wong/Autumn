@@ -14,6 +14,11 @@ public enum Plugin {
     private String[] keys;
     private Class plugin;
 
+    /**
+     * 构造方法中给关键词追加空格，目的是更好的匹配每一条传入的语句
+     * @param plugin
+     * @param keywords
+     */
     Plugin(Class plugin, String... keywords) {
         for (int i = 0; i < keywords.length; i++) {
             keywords[i] += " ";
@@ -22,6 +27,11 @@ public enum Plugin {
         this.plugin = plugin;
     }
 
+    /**
+     * 匹配处理器类型
+     * @param text
+     * @return
+     */
     private boolean is(String text) {
         for (String search : keys) {
             if (StringUtils.startsWith(text, search)) {
@@ -31,6 +41,11 @@ public enum Plugin {
         return false;
     }
 
+    /**
+     * 根据理想的命名规则 （key [text]）来匹配对应的插件，并返回指定的处理器；
+     * @param text
+     * @return
+     */
     public static final AbstractPlugin getMatchPlugin(String text) {
         if (StringUtils.isBlank(text)) {
             return null;
