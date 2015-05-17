@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import us.cijian.autumn.config.Project;
 import us.cijian.autumn.pojo.TuringResponse;
 
-import javax.print.DocFlavor;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

@@ -14,7 +14,6 @@ import java.util.List;
 
 public class BootstrapListener implements ServletContextListener {
 
-    @Override
     public void contextInitialized(ServletContextEvent sce) {
 
         System.setProperty("file.encoding", Project.ENCODING);
@@ -27,7 +26,6 @@ public class BootstrapListener implements ServletContextListener {
         }
     }
 
-    @Override
     public void contextDestroyed(ServletContextEvent sce) {
 
     }

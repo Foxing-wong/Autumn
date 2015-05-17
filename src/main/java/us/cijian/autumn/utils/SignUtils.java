@@ -22,9 +22,7 @@ public final class SignUtils {
     /**
      * 验证签名
      *
-     * @param signature
-     * @param timestamp
-     * @param nonce
+     * @param request
      * @return
      */
     public static boolean checkSignature(WechatRequest request) {

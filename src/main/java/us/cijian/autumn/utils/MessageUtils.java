@@ -39,18 +39,4 @@ public final class MessageUtils {
         return (T) unmarshaller.unmarshal(stream);
     }
 
-    public static String getStringFromStream(InputStream in) {
-        try {
-            ByteArrayOutputStream outStream = new ByteArrayOutputStream();
-            byte[] data = new byte[1024];
-            int count = -1;
-            while ((count = in.read(data, 0, 1024)) != -1)
-                outStream.write(data, 0, count);
-
-            data = null;
-            return new String(outStream.toByteArray(), Project.ENCODING);
-        } catch (Exception e) {
-            return null;
-        }
-    }
 }

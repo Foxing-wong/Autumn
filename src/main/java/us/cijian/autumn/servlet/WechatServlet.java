@@ -1,15 +1,14 @@
 package us.cijian.autumn.servlet;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.util.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import us.cijian.autumn.config.Project;
-import us.cijian.autumn.config.Wechat;
+import us.cijian.autumn.plugins.RiddlePlugin;
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.TextMessage;
 import us.cijian.autumn.pojo.WechatRequest;
 import us.cijian.autumn.utils.MessageUtils;
 import us.cijian.autumn.utils.SignUtils;
-import us.cijian.autumn.utils.StringUtils;
+import us.cijian.autumn.utils.TextUtils;
 import us.cijian.autumn.utils.TuringUtils;
 
 import javax.servlet.ServletException;
@@ -17,8 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.xml.bind.JAXBException;
-import java.io.*;
-import java.util.Scanner;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * Created by luohao4 on 2015/3/19.
@@ -59,8 +58,13 @@ public class WechatServlet extends HttpServlet {
             }
             Message wechatResponse;
             if (message.is(Message.Type.text)) {
-                String msg = TuringUtils.getServiceUrl(message.getContent());
-                wechatResponse = new TextMessage(message, msg);
+                String content = message.getContent();
+                if(TextUtils.startWithAnyIgnoreCase(content, "my", "miyu", "谜语")){
+                    wechatResponse = RiddlePlugin.getInstance().call(message);
+                } else {
+                    String msg = TuringUtils.getServiceUrl(content);
+                    wechatResponse = new TextMessage(message, msg);
+                }
             } else {
                 wechatResponse = new TextMessage(message, TuringUtils.DEFAULT_MSG);
             }
