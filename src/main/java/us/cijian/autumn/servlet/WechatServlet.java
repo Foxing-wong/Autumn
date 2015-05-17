@@ -4,13 +4,11 @@ import org.apache.commons.lang3.StringUtils;
 import us.cijian.autumn.config.Plugin;
 import us.cijian.autumn.config.Project;
 import us.cijian.autumn.plugins.AbstractPlugin;
-import us.cijian.autumn.plugins.RiddlePlugin;
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.TextMessage;
 import us.cijian.autumn.pojo.WechatRequest;
 import us.cijian.autumn.utils.MessageUtils;
 import us.cijian.autumn.utils.SignUtils;
-import us.cijian.autumn.utils.TextUtils;
 import us.cijian.autumn.utils.TuringUtils;
 
 import javax.servlet.ServletException;
