@@ -14,17 +14,10 @@ import java.util.List;
  * Created by MurphyL on 2015/5/16.
  * 坑爹到一塌糊涂啊，不想改~~
  */
-public final class RiddlePlugin implements AbstractPlugin {
+public final class RiddlePlugin extends AbstractPlugin {
 
     private String msRiddleUrl = "http://couplet.msra.cn/zimi/LightAnswerService.svc/Answer";
     private String queryParameter = "{\"question\":\"%s\",\"engineType\":0,\"topic\":0,\"focuseAnswerType\":\"字谜\"}";
-
-    private RiddlePlugin() {
-    }
-
-    public static RiddlePlugin getInstance() {
-        return new RiddlePlugin();
-    }
 
     public <T extends Message> T call(T message) {
         T resMsg = (T) (new TextMessage(message));
@@ -39,7 +32,7 @@ public final class RiddlePlugin implements AbstractPlugin {
         if (StringUtils.isBlank(result)) {
             return resMsg;
         }
-        try {   // 拼装文本消息
+        try {   // 拼装文本消息，预期返回正常，不正常就丢弃结果~
             String answerItems = JSON.parseObject(result).getJSONObject("d").getString("AnswerItems");
             List<RiddleAnswer> items = JSON.parseArray(answerItems, RiddleAnswer.class);
             if (null == items) {
