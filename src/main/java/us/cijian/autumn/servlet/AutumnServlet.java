@@ -3,6 +3,7 @@ package us.cijian.autumn.servlet;
 import freemarker.template.Configuration;
 import us.cijian.autumn.config.Project;
 import us.cijian.autumn.handler.RequestHandler;
+import us.cijian.autumn.utils.SignUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -24,10 +25,10 @@ public class AutumnServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        RequestHandler.getInstance(cfg).response(req.getRequestURI(), res);
+        RequestHandler.getInstance(cfg).response(req, res);
     }
 
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        RequestHandler.getInstance(cfg).response(req.getRequestURI(), res);
+        RequestHandler.getInstance(cfg).response(req, res);
     }
 }

@@ -25,13 +25,21 @@ import java.io.PrintWriter;
 public class WechatServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        dealGetRequest(req, res);
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException {
+        try {
+            dealGetRequest(req, res);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        dealPostRequest(req, res);
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException {
+        try {
+            dealPostRequest(req, res);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void dealGetRequest(HttpServletRequest req, HttpServletResponse res) throws IOException {
@@ -51,6 +59,7 @@ public class WechatServlet extends HttpServlet {
 
     /**
      * 文本消息首先加载插件，如果加载不到则递交到机器人
+     *
      * @param req
      * @param res
      * @throws IOException
@@ -66,7 +75,7 @@ public class WechatServlet extends HttpServlet {
             if (message.is(Message.Type.text)) {
                 String content = message.getContent();
                 AbstractPlugin plugin = Plugin.getMatchPlugin(content);
-                if(null != plugin){
+                if (null != plugin) {
                     wechatResponse = plugin.call(message);
                 } else {
                     String msg = TuringUtils.getServiceUrl(content);

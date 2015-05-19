@@ -1,11 +1,13 @@
 package us.cijian.autumn.utils;
 
+import com.alibaba.fastjson.JSONObject;
 import us.cijian.autumn.config.Wechat;
 import us.cijian.autumn.pojo.WechatRequest;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * Created by luohao4 on 2015/3/19.
@@ -14,8 +16,6 @@ public final class SignUtils {
 
     private SignUtils() {
     }
-
-    private static final char[] DIGIT = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     private static String token = Wechat.TONKEN.getVal();
 
@@ -33,45 +33,67 @@ public final class SignUtils {
         for (int i = 0; i < arr.length; i++) {
             content.append(arr[i]);
         }
-        String tmpStr = null;
+        String sha1Content = getSHA1(token, request.getTimestamp(), request.getNonce());
+        // 将sha1加密后的字符串可与signature对比，标识该请求来源于微信
+        return sha1Content != null ? sha1Content.equals(request.getSignature()) : false;
+    }
+
+    public static String getSHA1(String token, String timestamp, String nonce) {
+        return getSHA1(new String[]{token, timestamp, nonce});
+    }
+
+    public static String getShareConfig(String url) {
+        String nonceStr = UUID.randomUUID().toString();
+        String timestamp = String.valueOf(System.currentTimeMillis());
+        String signature = getSHA1(new String[]{token, url, timestamp, nonceStr});
+        JSONObject config = new JSONObject();
+        config.put("appId", Wechat.APP_ID.getVal());
+        config.put("timestamp", timestamp);
+        config.put("nonceStr", nonceStr);
+        config.put("signature", signature);
+        config.put("jsApiList", new String[]{
+                "onMenuShareTimeline",
+                "onMenuShareAppMessage",
+                "onMenuShareQQ",
+                "onMenuShareWeibo"
+        });
+        return config.toString();
+    }
+
+    /**
+     * 用SHA1算法生成安全签名（from wechat demo）
+     *
+     * @param array
+     * @return 安全签名
+     * @throws Exception
+     */
+    public static String getSHA1(String[] array) {
+        StringBuffer sb = new StringBuffer();
+        // 字符串排序
+        Arrays.sort(array);
+        for (int i = 0, len = array.length; i < len; i++) {
+            sb.append(array[i]);
+        }
+        String str = sb.toString();
+        // SHA1签名生成
+        MessageDigest md = null;
         try {
-            MessageDigest md = MessageDigest.getInstance("SHA-1");
-            // 将三个参数字符串拼接成一个字符串进行sha1加密
-            byte[] digest = md.digest(content.toString().getBytes());
-            tmpStr = byteToStr(digest);
+            md = MessageDigest.getInstance("SHA-1");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        // 将sha1加密后的字符串可与signature对比，标识该请求来源于微信
-        return tmpStr != null ? tmpStr.equals(request.getSignature().toUpperCase()) : false;
-    }
-
-    /**
-     * 将字节数组转换为十六进制字符串
-     *
-     * @param byteArray
-     * @return
-     */
-    private static String byteToStr(byte[] byteArray) {
-        String strDigest = "";
-        for (int i = 0; i < byteArray.length; i++) {
-            strDigest += byteToHexStr(byteArray[i]);
+        md.update(str.getBytes());
+        byte[] digest = md.digest();
+        StringBuffer hexstr = new StringBuffer();
+        String shaHex = "";
+        for (int i = 0; i < digest.length; i++) {
+            shaHex = Integer.toHexString(digest[i] & 0xFF);
+            if (shaHex.length() < 2) {
+                hexstr.append(0);
+            }
+            hexstr.append(shaHex);
         }
-        return strDigest;
-    }
-
-    /**
-     * 将字节转换为十六进制字符串
-     *
-     * @param mByte
-     * @return
-     */
-    private static String byteToHexStr(byte mByte) {
-        char[] tempArr = new char[2];
-        tempArr[0] = DIGIT[(mByte >>> 4) & 0X0F];
-        tempArr[1] = DIGIT[mByte & 0X0F];
-        String s = new String(tempArr);
-        return s;
+        return hexstr.toString();
     }
 
 }

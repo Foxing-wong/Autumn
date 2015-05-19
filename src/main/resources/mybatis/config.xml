@@ -29,9 +29,9 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://w.rdc.sae.sina.com.cn:3307/app_unionyhd?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
-                <property name="username" value="knj53zl1n3"/>
-                <property name="password" value="435hy1j2354j025z0jxlkm5yz5mwmx1i1m20x0ii"/>
+                <property name="url" value="jdbc:mysql://rdsmx1xepes8uossbqb2k.mysql.rds.aliyuncs.com:3306/r2x09pn3obtal512?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
+                <property name="username" value="r2x09pn3obtal512"/>
+                <property name="password" value="mingfei"/>
             </dataSource>
         </environment>
     </environments>

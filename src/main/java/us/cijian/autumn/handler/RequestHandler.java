@@ -1,11 +1,15 @@
 package us.cijian.autumn.handler;
 
 import freemarker.template.Configuration;
+import us.cijian.autumn.config.Project;
 import us.cijian.autumn.config.Resource;
+import us.cijian.autumn.utils.SignUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 
 /**
  * Created by luohao4 on 2015/3/17.
@@ -22,16 +26,17 @@ public class RequestHandler {
         return new RequestHandler(cfg);
     }
 
-    public void response(String uri, HttpServletResponse response) {
-        response.setCharacterEncoding("UTF-8");
+    public void response(HttpServletRequest request, HttpServletResponse response) {
+        String uri = request.getRequestURI();
+        response.setCharacterEncoding(Project.ENCODING);
         try {
             Resource template;
-            if(uri.length() > 1){
+            if (uri.length() > 1) {
                 template = Resource.valueOf(dealUri(uri));
             } else {
                 template = Resource.INDEX;
             }
-            write(template, response.getWriter());
+            write(request.getRequestURL(), template, response.getWriter());
         } catch (IOException e) {
             response.setStatus(500);
         } catch (IllegalArgumentException e) {
@@ -39,13 +44,14 @@ public class RequestHandler {
         }
     }
 
-    private final String dealUri(String uri){
+    private final String dealUri(String uri) {
         return uri.toUpperCase().substring(1).replace("/", "_");
     }
 
-    private final void write(Resource res, PrintWriter pr) {
+    private final void write(StringBuffer url, Resource res, PrintWriter pr) {
         try {
             String fileName = getFileName(res);
+            config.setSharedVariable("wxCfg", SignUtils.getShareConfig(url.toString()));
             config.getTemplate(fileName).process(null, pr);
         } catch (Exception e) {
             pr.println("<h1>500</h1>");

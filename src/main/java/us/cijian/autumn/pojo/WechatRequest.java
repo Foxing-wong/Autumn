@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class WechatRequest {
 
-
     public WechatRequest(HttpServletRequest req) {
         this.signature = req.getParameter("signature");
         this.timestamp = req.getParameter("timestamp");
@@ -52,4 +51,5 @@ public class WechatRequest {
     public void setEchostr(String echostr) {
         this.echostr = echostr;
     }
+
 }
