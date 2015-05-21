@@ -29,4 +29,11 @@ public class MessageTest {
         System.out.print(JSON.toJSONString(message1, true));
     }
 
+
+    @Test
+    public void test(){
+        String.format("%s", 1 < 0 ? 1l : "1");
+        String.format("%s", 1 > 0 ? 1l : "1");
+    }
+
 }
