@@ -9,30 +9,52 @@
     </icon> -->
     <display-name>一号店网盟内部交流</display-name>
     <listener>
-        <listener-class>us.cijian.autumn.servlet.BootstrapListener</listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:spring/context.xml
+        </param-value>
+    </context-param>
+    <!-- spring securit start -->
+    <!--<filter>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>-->
+    <!--<listener>
+        <listener-class>us.cijian.autumn.servlet.BootstrapListener</listener-class>
+    </listener>-->
     <servlet>
+        <servlet-name>cijian</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>cijian</servlet-name>
+    <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <!--<servlet>
         <servlet-name>autumn</servlet-name>
         <servlet-class>us.cijian.autumn.servlet.AutumnServlet</servlet-class>
-    </servlet>
-    <servlet>
+    </servlet>-->
+    <!--<servlet>
         <servlet-name>wechat</servlet-name>
         <servlet-class>us.cijian.autumn.servlet.WechatServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
+    </servlet>-->
+    <!--<servlet-mapping>
         <servlet-name>autumn</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
+    </servlet-mapping>-->
+    <!--<servlet-mapping>
         <servlet-name>wechat</servlet-name>
         <url-pattern>/wechat</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>-->
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/assets/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>default</servlet-name>
-        <url-pattern>*.ico</url-pattern>
     </servlet-mapping>
 </web-app>

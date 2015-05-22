@@ -21,7 +21,7 @@ public class AutumnServlet extends HttpServlet {
     @Override
     public void init() throws ServletException {
         cfg = new Configuration();
-        cfg.setServletContextForTemplateLoading(getServletContext(), Project.FTL_PATH);
+        /*cfg.setServletContextForTemplateLoading(getServletContext(), Project.FTL_PATH);*/
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

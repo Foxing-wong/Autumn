@@ -6,7 +6,6 @@ import us.cijian.autumn.config.Project;
 import us.cijian.autumn.config.Wechat;
 import us.cijian.autumn.mapper.SettingsMapper;
 import us.cijian.autumn.pojo.Setting;
-import us.cijian.autumn.utils.MyBatisUtils;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -18,12 +17,12 @@ public class BootstrapListener implements ServletContextListener {
 
         System.setProperty("file.encoding", Project.ENCODING);
 
-        MyBatisUtils.initMyBatisContext();
+        /*MyBatisUtils.initMyBatisContext();
         SettingsMapper sm = MyBatisUtils.getMapper(SettingsMapper.class);
         List<Setting> settings = sm.getByType("wechat");
         for (Setting setting : settings) {
             Wechat.valueOf(setting.getName()).setVal(setting.getVal());
-        }
+        }*/
     }
 
     public void contextDestroyed(ServletContextEvent sce) {

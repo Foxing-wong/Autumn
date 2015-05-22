@@ -1,6 +1,7 @@
 package us.cijian.autumn.mapper;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 import us.cijian.autumn.pojo.Setting;
 
 import java.util.List;
