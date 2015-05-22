@@ -1,6 +1,7 @@
 package us.cijian.autumn.utils;
 
 import com.alibaba.fastjson.JSONObject;
+import org.apache.commons.lang3.StringUtils;
 import us.cijian.autumn.config.Wechat;
 import us.cijian.autumn.pojo.WechatRequest;
 
@@ -43,7 +44,7 @@ public final class SignUtils {
     }
 
     public static String getShareConfig(String url) {
-        String nonceStr = UUID.randomUUID().toString();
+        String nonceStr = StringUtils.remove(UUID.randomUUID().toString(), "-");
         String timestamp = String.valueOf(System.currentTimeMillis());
         String signature = getSHA1(new String[]{token, url, timestamp, nonceStr});
         JSONObject config = new JSONObject();
