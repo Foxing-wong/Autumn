@@ -27,10 +27,17 @@ public class FrontController {
         return "login";
     }
 
-    @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = {"/login"})
-    public void loginCallback() {
+    public String loginCallback() {
         Subject currentUser = SecurityUtils.getSubject();
-        //return currentUser.isAuthenticated();
+        if (currentUser.isAuthenticated()) {
+            return "redirect:success";
+        }
+        return "redirect:login";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = {"/dashboard"})
+    public String dashView() {
+        return "backend/dashboard";
     }
 }
