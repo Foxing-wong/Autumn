@@ -1,6 +1,6 @@
 package us.cijian.autumn.pojo;
 
-import us.cijian.autumn.utils.TuringUtils;
+import us.cijian.autumn.module.TuringPlugin;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -13,9 +13,11 @@ public class TextMessage extends Message {
     public TextMessage() {
         super(Type.text);
     }
-    public TextMessage(Message message){
-        this(message, TuringUtils.DEFAULT_MSG);
+
+    public TextMessage(Message message) {
+        this(message, TuringPlugin.DEFAULT_MSG);
     }
+
     public TextMessage(Message message, String text) {
         this();
         this.setContent(text);

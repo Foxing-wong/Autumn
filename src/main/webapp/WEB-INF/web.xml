@@ -37,22 +37,15 @@
     <servlet-name>cijian</servlet-name>
     <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!--<servlet>
-        <servlet-name>autumn</servlet-name>
-        <servlet-class>us.cijian.autumn.servlet.AutumnServlet</servlet-class>
-    </servlet>-->
-    <!--<servlet>
+
+    <servlet>
         <servlet-name>wechat</servlet-name>
-        <servlet-class>us.cijian.autumn.servlet.WechatServlet</servlet-class>
-    </servlet>-->
-    <!--<servlet-mapping>
-        <servlet-name>autumn</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>-->
-    <!--<servlet-mapping>
+        <servlet-class>us.cijian.autumn.controller.WechatController</servlet-class>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>wechat</servlet-name>
         <url-pattern>/wechat</url-pattern>
-    </servlet-mapping>-->
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>/assets/*</url-pattern>

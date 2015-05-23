@@ -2,7 +2,8 @@ package us.cijian.autumn.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
-import us.cijian.autumn.config.Wechat;
+import us.cijian.autumn.constants.Wechat;
+import us.cijian.autumn.pojo.WechatRequest;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -21,22 +22,20 @@ public final class SignUtils {
 
     /**
      * 验证签名
-     * @param signature
-     * @param timestamp
-     * @param nonce
+     * @param request
      * @return
      */
-    public static boolean checkSignature(String signature, String timestamp, String nonce) {
-        String[] arr = new String[]{token, timestamp, nonce};
+    public static boolean checkSignature(WechatRequest request) {
+        String[] arr = new String[]{token, request.getTimestamp(), request.getNonce()};
         // 将token、timestamp、nonce三个参数进行字典序排序
         Arrays.sort(arr);
         StringBuilder content = new StringBuilder();
         for (int i = 0; i < arr.length; i++) {
             content.append(arr[i]);
         }
-        String sha1Content = getSHA1(token, timestamp, nonce);
+        String sha1Content = getSHA1(token, request.getTimestamp(), request.getNonce());
         // 将sha1加密后的字符串可与signature对比，标识该请求来源于微信
-        return sha1Content != null ? sha1Content.equals(signature) : false;
+        return sha1Content != null ? sha1Content.equals(request.getSignature()) : false;
     }
 
     public static String getSHA1(String token, String timestamp, String nonce) {

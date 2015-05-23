@@ -1,8 +1,9 @@
-package us.cijian.autumn.config;
+package us.cijian.autumn.constants;
 
 import org.apache.commons.lang3.StringUtils;
-import us.cijian.autumn.plugins.AbstractPlugin;
-import us.cijian.autumn.plugins.RiddlePlugin;
+import us.cijian.autumn.module.AbstractTextPlugin;
+import us.cijian.autumn.module.RiddlePlugin;
+import us.cijian.autumn.module.TuringPlugin;
 
 /**
  * Created by MurphyL on 2015/5/17.
@@ -46,7 +47,7 @@ public enum Plugin {
      * @param text
      * @return
      */
-    public static final AbstractPlugin getMatchPlugin(String text) {
+    public static final AbstractTextPlugin getMatchPlugin(String text) {
         if (StringUtils.isBlank(text)) {
             return null;
         }
@@ -56,10 +57,10 @@ public enum Plugin {
                 continue;
             }
             try {
-                return (AbstractPlugin) items.plugin.newInstance();
+                return (AbstractTextPlugin) items.plugin.newInstance();
             } catch (Exception e) {
             }
         }
-        return null;
+        return new TuringPlugin();
     }
 }

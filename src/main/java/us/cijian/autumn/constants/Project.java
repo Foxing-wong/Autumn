@@ -1,4 +1,4 @@
-package us.cijian.autumn.config;
+package us.cijian.autumn.constants;
 
 /**
  * Created by Murphy on 3/18/2015.
