@@ -32,6 +32,7 @@ public class WechatController extends HttpServlet {
     public void init() throws ServletException {
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(getServletContext());
         wechatService = context.getBean(WechatService.class);
+        System.out.println("初始化微信公众号消息处理器完成~");
     }
 
     /**

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration
-        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        PUBLIC "-//us.cijian.autumn.mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <!--<typeAliases>
@@ -36,7 +36,7 @@
         </environment>
     </environments>
     <mappers>
-        <mapper resource="/main/resources/mybatis/mapper/SettingsMapper.xml"/>
+        <mapper resource="/main/resources/us.cijian.autumn.mybatis/mapper/SettingsMapper.xml"/>
     </mappers>-->
     <settings>
         <setting name="cacheEnabled" value="false"/>

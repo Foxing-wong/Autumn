@@ -1,4 +1,4 @@
-<#include "macro.ftl">
+<#include "../common/front.macro.ftl">
 <@header title="Web 开发起步" />
 <div class="header">
     <h1>起步</h1>

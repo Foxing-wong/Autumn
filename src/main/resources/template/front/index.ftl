@@ -1,4 +1,4 @@
-<#include "macro.ftl">
+<#include "../common/front.macro.ftl">
 <@header />
     <div class="header">
         <h1 class="ldb">记在收获的季节</h1>

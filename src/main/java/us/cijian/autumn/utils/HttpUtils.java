@@ -12,6 +12,7 @@ import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import us.cijian.autumn.constants.Project;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
@@ -77,5 +78,7 @@ public final class HttpUtils {
         return get(url, ContentType.APPLICATION_JSON.toString());
     }
 
-
+    public static boolean isAjaxRequest(HttpServletRequest request) {
+        return "XMLHttpRequest".equalsIgnoreCase(request.getHeader("X-Requested-With"));
+    }
 }
