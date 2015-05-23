@@ -12,6 +12,13 @@
     <div class="smooth">
         <div class="container w-xxl">
             <div class="m-b-lg" id="login">
+                <#if message??>
+                <div class="alert alert-danger alert-dismissable" role="danger" type="warning" ng-hide="form.$dirty">
+                    <div>
+                        <span class="ng-binding ng-scope">${message}...</span>
+                    </div>
+                </div>
+                </#if>
                 <form name="form" class="form-validation" action="" method="post">
                     <div class="list-group">
                         <div class="list-group-item">

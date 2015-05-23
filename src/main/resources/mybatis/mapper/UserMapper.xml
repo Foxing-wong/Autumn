@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//us.cijian.autumn.mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="us.cijian.autumn.mapper.UserMapper">
+    <select id="getByName" resultType="User">
+        SELECT U.ID id, U.NAME username, U.NICKNAME nickname, U.PASSWORD password, U.JOIN_TIME joinTime, R.TEXT role
+        FROM USER U, ROLE R, USER_ROLE UR
+        WHERE U.ID = UR.USER AND R.ID = UR.ROLE AND U.NAME = #{name}
+    </select>
+</mapper>

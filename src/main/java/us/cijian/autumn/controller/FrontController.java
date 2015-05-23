@@ -3,6 +3,7 @@ package us.cijian.autumn.controller;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,13 +32,14 @@ public class FrontController {
         return "login";
     }
 
-    @ResponseBody
     @RequestMapping(method = RequestMethod.POST, value = {"/login"})
-    public void loginCallback() {
+    public String loginCallback(Model model) {
         Subject currentUser = SecurityUtils.getSubject();
         if (currentUser.isAuthenticated()) {
-            System.out.println("login success");
+            return "backend/dashboard";
         }
+        model.addAttribute("message", "账号或者密码错误");
+        return "login";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = {"/dashboard"})
