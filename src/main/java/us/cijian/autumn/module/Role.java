@@ -1,4 +1,4 @@
-package us.cijian.autumn.constants;
+package us.cijian.autumn.module;
 
 import java.lang.annotation.*;
 

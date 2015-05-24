@@ -1,16 +1,14 @@
 package us.cijian.autumn.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import us.cijian.autumn.constants.Project;
+import us.cijian.autumn.module.Project;
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.WechatRequest;
 import us.cijian.autumn.service.WechatService;
 import us.cijian.autumn.utils.MessageUtils;
 import us.cijian.autumn.utils.SignUtils;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

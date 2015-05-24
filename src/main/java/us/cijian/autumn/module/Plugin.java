@@ -1,9 +1,6 @@
-package us.cijian.autumn.constants;
+package us.cijian.autumn.module;
 
 import org.apache.commons.lang3.StringUtils;
-import us.cijian.autumn.module.AbstractTextPlugin;
-import us.cijian.autumn.module.RiddlePlugin;
-import us.cijian.autumn.module.TuringPlugin;
 
 /**
  * Created by MurphyL on 2015/5/17.

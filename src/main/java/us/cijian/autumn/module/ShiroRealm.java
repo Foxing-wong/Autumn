@@ -8,15 +8,8 @@ import org.apache.shiro.subject.PrincipalCollection;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.CollectionUtils;
-import us.cijian.autumn.constants.Privileges;
 import us.cijian.autumn.mapper.UserMapper;
 import us.cijian.autumn.pojo.User;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by MurphyL on 2015/5/23.

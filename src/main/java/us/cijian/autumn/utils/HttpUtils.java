@@ -10,7 +10,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
-import us.cijian.autumn.constants.Project;
+import us.cijian.autumn.module.Project;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.ByteArrayOutputStream;

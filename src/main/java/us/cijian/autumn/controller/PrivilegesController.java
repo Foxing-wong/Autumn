@@ -3,8 +3,8 @@ package us.cijian.autumn.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import us.cijian.autumn.constants.Privileges;
-import us.cijian.autumn.constants.Role;
+import us.cijian.autumn.module.Privileges;
+import us.cijian.autumn.module.Role;
 
 /**
  * Created by MurphyL on 5/24/2015.

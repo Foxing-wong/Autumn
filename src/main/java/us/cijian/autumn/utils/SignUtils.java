@@ -2,7 +2,7 @@ package us.cijian.autumn.utils;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang3.StringUtils;
-import us.cijian.autumn.constants.Wechat;
+import us.cijian.autumn.module.Wechat;
 import us.cijian.autumn.pojo.WechatRequest;
 
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package us.cijian.autumn.constants;
+package us.cijian.autumn.module;
 
 /**
  * Created by Murphy on 3/18/2015.

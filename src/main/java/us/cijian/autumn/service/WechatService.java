@@ -1,8 +1,8 @@
 package us.cijian.autumn.service;
 
 import com.alibaba.fastjson.JSON;
-import us.cijian.autumn.constants.Plugin;
-import us.cijian.autumn.constants.Wechat;
+import us.cijian.autumn.module.Plugin;
+import us.cijian.autumn.module.Wechat;
 import us.cijian.autumn.module.AbstractTextPlugin;
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.TextMessage;

@@ -4,8 +4,6 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import us.cijian.autumn.constants.Privileges;
-import us.cijian.autumn.constants.Wechat;
 import us.cijian.autumn.mapper.SettingsMapper;
 import us.cijian.autumn.pojo.KV;
 import us.cijian.autumn.pojo.Menu;
