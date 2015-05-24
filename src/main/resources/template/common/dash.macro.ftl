@@ -1,3 +1,33 @@
+<#assign user = getUser(), mapping = getMenuMapping() />
+<#-- 渲染菜单 -->
+<#macro render key>
+    <#assign menu = mapping[key] />
+    <#assign icon = menu.icon!'' />
+    <#if (menu.parent!false)>
+    <#if user.hasRole(menu.role)>
+    <li>
+        <a href="${menu.path!'javascript:;'}" title="${menu.descrption!''}">
+            <i class="fa ${icon} fa-fw"></i> ${key}
+        </a>
+    </li>
+    </#if>
+    <#else>
+    <li>
+        <a href="javascript:;"><i class="fa ${icon} fa-fw"></i> ${key}<span class="fa arrow"></span></a>
+        <ul class="nav nav-second-level">
+        <#list menu.menus as subMenu>
+        <#if user.hasRole(subMenu.role)>
+            <li>
+                <a href="${subMenu.path!'javascript:;'}"  title="${subMenu.descrption!''}">${subMenu.name!'超链接'}</a>
+            </li>
+        </#if>
+        </#list>
+        </ul>
+        <!-- /.nav-second-level -->
+    </li>
+    </#if>
+</#macro>
+
 <#macro header title>
 <!DOCTYPE html>
 <html lang="en">
@@ -240,7 +270,7 @@
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="/user/${user.principal!""}"><i class="fa fa-user fa-fw"></i> ${user.principal!""}</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
@@ -257,93 +287,13 @@
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="flot.html">Flot Charts</a>
-                            </li>
-                            <li>
-                                <a href="morris.html">Morris.js Charts</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
-                    </li>
-                    <li>
-                        <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="panels-wells.html">Panels and Wells</a>
-                            </li>
-                            <li>
-                                <a href="buttons.html">Buttons</a>
-                            </li>
-                            <li>
-                                <a href="notifications.html">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="typography.html">Typography</a>
-                            </li>
-                            <li>
-                                <a href="icons.html"> Icons</a>
-                            </li>
-                            <li>
-                                <a href="grid.html">Grid</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span
-                                class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Second Level Item</a>
-                            </li>
-                            <li>
-                                <a href="#">Third Level <span class="fa arrow"></span></a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Third Level Item</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-third-level -->
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
-                    <li class="active">
-                        <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li>
-                                <a class="active" href="blank.html">Blank Page</a>
-                            </li>
-                            <li>
-                                <a href="login.html">Login Page</a>
-                            </li>
-                        </ul>
-                        <!-- /.nav-second-level -->
-                    </li>
+                    <#if mapping??>
+                        <#list mapping?keys as menu>
+                            <@render menu />
+                        </#list>
+                    </#if>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
@@ -351,7 +301,7 @@
         <!-- /.navbar-static-side -->
     </nav>
     <!-- Page Content -->
-    <div id="page-wrapper">
+<div id="page-wrapper">
 </#macro>
 
 
@@ -367,7 +317,7 @@
 <script src="http://cijian.qiniudn.com/js/bootstrap.min.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="http://cijian.qiniudn.com/js/sb-admin-2.js"></script>
-<#nested>
+    <#nested>
 </body>
 </html>
 </#macro>

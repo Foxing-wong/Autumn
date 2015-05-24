@@ -3,41 +3,6 @@
         PUBLIC "-//us.cijian.autumn.mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <!--<typeAliases>
-        <typeAlias type="us.cijian.autumn.pojo.Setting"></typeAlias>
-    </typeAliases>
-    <environments default="development">
-        <environment id="development">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://192.168.33.10:3306/cijianus_double?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
-                <property name="username" value="cijianus_double"/>
-                <property name="password" value="cijianus_double"/>
-            </dataSource>
-        </environment>
-        <environment id="work">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://10.161.138.15:3307/union_db?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
-                <property name="username" value="union_user"/>
-                <property name="password" value="union_user"/>
-            </dataSource>
-        </environment>
-        <environment id="production">
-            <transactionManager type="JDBC"/>
-            <dataSource type="POOLED">
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/wechat?useUnicode=true&amp;characterEncoding=utf8&amp;autoReconnect"/>
-                <property name="username" value="wechat"/>
-                <property name="password" value="mingfei"/>
-            </dataSource>
-        </environment>
-    </environments>
-    <mappers>
-        <mapper resource="/main/resources/us.cijian.autumn.mybatis/mapper/SettingsMapper.xml"/>
-    </mappers>-->
     <settings>
         <setting name="cacheEnabled" value="false"/>
         <setting name="lazyLoadingEnabled" value="false"/>

@@ -1,6 +1,6 @@
 package us.cijian.autumn.constants;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,14 +8,18 @@ import java.util.List;
  */
 public enum Privileges {
 
-    Owner("Owner", "Admin", "Register"),
-    Admin("Admin", "Register"),
-    Register("Register");
+    Owner(),
+    Admin(),
+    Register();
 
     private List<String> roles;
 
-    Privileges(String... roles) {
-        this.roles = Arrays.asList(roles);
+    Privileges() {
+        this.roles = new ArrayList<String>();
+    }
+
+    public void add(String role) {
+        roles.add(role);
     }
 
     public List<String> getRoles() {
