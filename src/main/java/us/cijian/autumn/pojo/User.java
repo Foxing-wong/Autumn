@@ -11,7 +11,7 @@ public class User {
     private String username;
     private String nickname;
     private String password;
-    private String principal;
+    private String role;
     private Date joinTime;
 
 
@@ -47,12 +47,12 @@ public class User {
         this.password = password;
     }
 
-    public String getPrincipal() {
-        return principal;
+    public String getRole() {
+        return role;
     }
 
-    public void setPrincipal(String principal) {
-        this.principal = principal;
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Date getJoinTime() {

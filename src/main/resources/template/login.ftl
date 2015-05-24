@@ -28,6 +28,7 @@
                         <div class="list-group-item">
                             <input type="password" name="password" placeholder="Password" class="form-control"
                                    ng-model="password" required="">
+                            <input type="hidden" name="rememberMe" value="true"/>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary btn-block" ng-disabled="form.$invalid"

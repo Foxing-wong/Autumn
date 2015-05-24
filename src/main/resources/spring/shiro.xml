@@ -14,10 +14,10 @@
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
     <!-- 基于Form表单的身份验证过滤器 -->
-    <bean id="formAuthenticationFilter" class="us.cijian.autumn.filter.UserFormAuthenticationFilter">
+    <!--<bean id="formAuthenticationFilter" class="us.cijian.autumn.filter.UserFormAuthenticationFilter">
         <property name="usernameParam" value="username"/>
         <property name="passwordParam" value="password"/>
-    </bean>
+    </bean>-->
 
     <!-- Shiro的Web过滤器 -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
@@ -28,12 +28,12 @@
         <property name="successUrl" value="/dashboard"/>
         <!--无权访问的 URL-->
         <property name="unauthorizedUrl" value="/unauthorized"/>
-        <property name="filters">
+        <!--<property name="filters">
             <util:map>
-                <!--使用我们自定义的登录逻辑，为了支持AJAX请求-->
+                &lt;!&ndash;使用我们自定义的登录逻辑，为了支持AJAX请求&ndash;&gt;
                 <entry key="authc" value-ref="formAuthenticationFilter"/>
             </util:map>
-        </property>
+        </property>-->
 
         <property name="filterChainDefinitions">
             <value>
@@ -47,10 +47,7 @@
                 /index = anon
                 /unauthorized = anon
                 /login = authc
-                /rest = authc
                 /logout = logout
-                /admin = authc, roles[Admin]
-                /register = authc, roles[Register]
             </value>
         </property>
     </bean>

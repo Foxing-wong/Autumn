@@ -1,5 +1,6 @@
 package us.cijian.autumn.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 import us.cijian.autumn.constants.Project;

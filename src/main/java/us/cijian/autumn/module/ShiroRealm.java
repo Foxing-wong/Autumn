@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.CollectionUtils;
+import us.cijian.autumn.constants.Privileges;
 import us.cijian.autumn.mapper.UserMapper;
 import us.cijian.autumn.pojo.User;
 
@@ -22,7 +23,7 @@ import java.util.Map;
  */
 public class ShiroRealm extends AuthorizingRealm {
 
-    private static Logger logger = LoggerFactory.getLogger(ShiroRealm.class.getName());
+    private static Logger logger = LoggerFactory.getLogger(ShiroRealm.class);
 
     @Autowired
     private UserMapper userMapper;
@@ -36,7 +37,7 @@ public class ShiroRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         User user = getUserByName(username);
         if (null != user) {
-            info.addRole(user.getPrincipal());
+            info.addRoles(Privileges.valueOf(user.getRole()).getRoles());
         }
         return info;
     }

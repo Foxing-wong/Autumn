@@ -3,8 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- default-autowire="byName" default-lazy-init="false" -->
-    <!-- option
-    <bean id="exceptionResolver" class="${globle_exception_handler}"/> -->
+    <bean id="exceptionResolver" class="us.cijian.autumn.module.ExceptionHandler"/>
     <!-- DataSource -->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
