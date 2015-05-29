@@ -62,4 +62,8 @@
         <servlet-name>default</servlet-name>
         <url-pattern>/angular/*</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/metro/*</url-pattern>
+    </servlet-mapping>
 </web-app>

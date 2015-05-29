@@ -28,22 +28,22 @@
     </#if>
 </#macro>
 
-<#macro header title>
+<#macro header title, st=false>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="author" content="MurphyL">
+    <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
     <title>${title} | I'm MurphyL.</title>
     <!-- Bootstrap Core CSS -->
-    <link href="http://cijian.qiniudn.com/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/metro/css/metro.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="http://cijian.qiniudn.com/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/metro/css/metro-icons.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="http://cijian.qiniudn.com/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="/metro/css/docs.css" rel="stylesheet" type="text/css">
     <#nested>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -53,271 +53,145 @@
     <![endif]-->
 </head>
 <body>
-<div id="wrapper">
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/dashboard">I'm MurphyL</a>
-        </div>
-        <!-- /.navbar-header -->
-        <ul class="nav navbar-top-links navbar-right">
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-messages">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                            </div>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                        </a>
+    <div>
+        <header class="app-bar fixed-top" data-role="appbar">
+            <div class="container">
+                <a href="/dashboard" class="app-bar-element branding">I'm MurphyL.</a>
+                <ul class="app-bar-menu">
+                    <li data-flexorderorigin="0" data-flexorder="1">
+                        <a href="#" class="dropdown-toggle">Base CSS</a>
+                        <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                            <li class="disabled"><a href="overview.html">Overview</a></li>
+                            <li class="divider"></li>
+                            <li><a href="grid.html">Grid system</a></li>
+                            <li><a href="typography.html">Typography</a></li>
+                            <li><a href="tables.html">Tables</a></li>
+                            <li><a href="inputs.html">Forms &amp; Inputs</a></li>
+                            <li><a href="buttons.html">Buttons</a></li>
+                            <li><a href="images.html">Images</a></li>
+                            <li><a href="font.html">Metro Icon Font</a></li>
+                            <li class="divider"></li>
+                            <li><a href="colors.html">Colors</a></li>
+                            <li><a href="helpers.html">Helpers classes</a></li>
+                            <li class="divider"></li>
+                            <li class="disabled"><a href="responsive.html">Responsive</a></li>
+                        </ul>
                     </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                            </div>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                        </a>
+                    <li data-flexorderorigin="1" data-flexorder="2">
+                        <a href="#" class="dropdown-toggle">Widgets</a>
+                        <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                            <li class="disabled"><a href="#">Overview</a></li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" class="dropdown-toggle">Utils</a>
+                                <ul class="d-menu" data-role="dropdown">
+                                    <li><a href="validator.html">Form Validator</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="easing.html">Easing functions</a></li>
+                                    <li class="disabled"><a href="precode.html">PreCode</a></li>
+                                </ul>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="tiles.html">Tiles</a></li>
+                            <li>
+                                <a href="#" class="dropdown-toggle">Controls</a>
+                                <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                                    <li><a href="accordion.html">Accordion</a></li>
+                                    <li><a href="appbar.html">Application bar</a></li>
+                                    <li><a href="button-groups.html">Button groups</a></li>
+                                    <li><a href="keypad.html">Keypad</a></li>
+                                    <li><a href="menu.html">Menus</a></li>
+                                    <li><a href="sidebar.html">Sidebar</a></li>
+                                    <li><a href="tabcontrol.html">Tab Control</a></li>
+                                    <li><a href="treeview.html">TreeView</a></li>
+                                    <li><a href="listview.html">ListView</a></li>
+                                    <li><a href="sliders.html">Slider</a></li>
+                                    <li><a href="stepper.html">Stepper</a></li>
+                                    <li><a href="wizard.html">Wizard</a></li>
+                                    <li><a href="wizard2.html">Wizard2</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-toggle">Visualization</a>
+                                <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                                    <li><a href="carousel.html">Carousel</a></li>
+                                    <li class="no-display"><a href="windows.html">Windows</a></li>
+                                    <li><a href="popovers.html">Popovers</a></li>
+                                    <li><a href="progressbar.html">Progress Bar</a></li>
+                                    <li><a href="panels.html">Panels</a></li>
+                                    <li><a href="rating.html">Rating</a></li>
+                                    <li><a href="preloaders.html">Preloaders</a></li>
+                                    <li><a href="hints.html">Hints</a></li>
+                                    <li><a href="streamer.html">Streamer</a></li>
+                                    <li><a href="presenter.html">Presenter</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-toggle">Information</a>
+                                <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                                    <li><a href="notify.html">Notify system</a></li>
+                                    <li><a href="dialog.html">Dialogs</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-toggle">Date &amp; Time</a>
+                                <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                                    <li><a href="calendar.html">Calendar</a></li>
+                                    <li><a href="datepicker.html">Datepicker</a></li>
+                                    <li><a href="countdown.html">Countdown</a></li>
+                                </ul>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" class="dropdown-toggle">Third-party</a>
+                                <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                                    <li><a href="select2.html">Select2</a></li>
+                                    <li><a href="datatables.html">DataTables</a></li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                            </div>
-                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>Read All Messages</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.dropdown-messages -->
-            </li>
-            <!-- /.dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-tasks">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 1</strong>
-                                    <span class="pull-right text-muted">40% Complete</span>
-                                </p>
 
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                        <span class="sr-only">40% Complete (success)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                    <li data-flexorderorigin="2" data-flexorder="3">
+                        <a href="#" class="dropdown-toggle">Templates</a>
+                        <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                            <li><a href="templates/start-screen.html">Start screen</a></li>
+                            <li><a href="templates/news-portal.html">News Portal</a></li>
+                            <li><a href="templates/login.html">Login form</a></li>
+                        </ul>
                     </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 2</strong>
-                                    <span class="pull-right text-muted">20% Complete</span>
-                                </p>
 
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                        <span class="sr-only">20% Complete</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 3</strong>
-                                    <span class="pull-right text-muted">60% Complete</span>
-                                </p>
-
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                        <span class="sr-only">60% Complete (warning)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <p>
-                                    <strong>Task 4</strong>
-                                    <span class="pull-right text-muted">80% Complete</span>
-                                </p>
-
-                                <div class="progress progress-striped active">
-                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80"
-                                         aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                        <span class="sr-only">80% Complete (danger)</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>See All Tasks</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
+                    <li data-flexorderorigin="3" data-flexorder="4">
+                        <a href="#" class="dropdown-toggle">Community</a>
+                        <ul class="d-menu" data-role="dropdown" data-no-close="true">
+                            <li><a href="http://forum.metroui.org.ua">Forum</a></li>
+                            <li><a href="https://github.com/olton/Metro-UI-CSS">Github</a></li>
+                            <li class="divider"></li>
+                            <li><a href="license.html">License</a></li>
+                        </ul>
                     </li>
                 </ul>
-                <!-- /.dropdown-tasks -->
-            </li>
-            <!-- /.dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-alerts">
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-comment fa-fw"></i> New Comment
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                <span class="pull-right text-muted small">12 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-tasks fa-fw"></i> New Task
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a href="#">
-                            <div>
-                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                <span class="pull-right text-muted small">4 minutes ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="divider"></li>
-                    <li>
-                        <a class="text-center" href="#">
-                            <strong>See All Alerts</strong>
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- /.dropdown-alerts -->
-            </li>
-            <!-- /.dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li><a href="/user/${user.principal!""}"><i class="fa fa-user fa-fw"></i> ${user.principal!""}</a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                    </li>
-                    <li class="divider"></li>
-                    <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                    </li>
-                </ul>
-                <!-- /.dropdown-user -->
-            </li>
-            <!-- /.dropdown -->
-        </ul>
-        <!-- /.navbar-top-links -->
-        <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
-                <ul class="nav" id="side-menu">
-                    <li>
-                        <a href="/dashboard"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                    </li>
-                    <#if mapping??>
-                        <#list mapping?keys as menu>
-                            <@render menu />
-                        </#list>
-                    </#if>
-                </ul>
+                <span class="app-bar-pull"></span>
+                <div class="app-bar-pullbutton automatic" style="display: none;"></div>
+                <div class="clearfix" style="width: 0;"></div>
+                <nav class="app-bar-pullmenu hidden flexstyle-app-bar-menu" style="display: none;">
+                    <ul class="app-bar-pullmenubar hidden app-bar-menu"></ul>
+                </nav>
             </div>
-            <!-- /.sidebar-collapse -->
-        </div>
-        <!-- /.navbar-static-side -->
-    </nav>
-    <!-- Page Content -->
-<div id="page-wrapper">
+        </header>
+    </div>
+    <div class="container page-content">
+        <div id="app-content">
+            <#if st><h1><a href="/dashboard" class="nav-button transform"><span></span></a>&nbsp;${title}</h1><hr class="thin"></#if>
 </#macro>
 
 
 <#macro footer>
-    <!-- /.container-fluid -->
-</div>
-    <!-- /#page-wrapper -->
-</div>
-<!-- /#wrapper -->
-<!-- jQuery -->
+        </div>
+    </div>
 <script src="http://cijian.qiniudn.com/js/jquery.min.js"></script>
-<!-- Bootstrap Core JavaScript -->
-<script src="http://cijian.qiniudn.com/js/bootstrap.min.js"></script>
-<!-- Custom Theme JavaScript -->
-<script src="http://cijian.qiniudn.com/js/sb-admin-2.js"></script>
-    <#nested>
+<script src="/metro/js/metro.js"></script>
+<#nested>
 </body>
 </html>
 </#macro>
