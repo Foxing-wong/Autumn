@@ -12,7 +12,8 @@ import us.cijian.autumn.utils.HttpUtils;
 public class TuringPlugin extends AbstractTextPlugin {
 
     public static final String DEFAULT_MSG = "我以前和你一样也是个冒险家，直到我的膝盖中了一箭。";
-    private static final String SERVICE_URL = "http://www.tuling123.com/openapi/api?key=a5c67c0a59934a2255567f24a1ce6bf2&info=";
+    private static final String SERVICE_URL = "http://iebot.sinaapp.com?in=";
+    // "http://www.tuling123.com/openapi/api?key=a5c67c0a59934a2255567f24a1ce6bf2&info=";
 
     @Override
     public TextMessage process(Message message) {

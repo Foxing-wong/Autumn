@@ -64,5 +64,4 @@ public class WechatController extends HttpServlet {
         resp.getWriter().write(text);
     }
 
-
 }
