@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import us.cijian.autumn.module.Privileges;
-import us.cijian.autumn.module.Role;
+import us.cijian.autumn.enums.Privileges;
+import us.cijian.autumn.enums.Role;
 
 /**
  * Created by MurphyL on 2015/5/22.

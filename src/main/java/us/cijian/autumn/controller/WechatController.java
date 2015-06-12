@@ -2,7 +2,7 @@ package us.cijian.autumn.controller;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-import us.cijian.autumn.module.Project;
+import us.cijian.autumn.enums.Project;
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.WechatRequest;
 import us.cijian.autumn.service.WechatService;

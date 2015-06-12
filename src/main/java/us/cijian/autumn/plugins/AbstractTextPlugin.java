@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.plugins;
 
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.TextMessage;

@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.enums;
 
 /**
  * Created by Murphy on 3/18/2015.

@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.bean;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import us.cijian.autumn.mapper.UserMapper;
+import us.cijian.autumn.enums.Privileges;
 import us.cijian.autumn.pojo.User;
 
 /**

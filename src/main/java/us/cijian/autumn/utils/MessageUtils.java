@@ -1,6 +1,6 @@
 package us.cijian.autumn.utils;
 
-import us.cijian.autumn.module.Project;
+import us.cijian.autumn.enums.Project;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;

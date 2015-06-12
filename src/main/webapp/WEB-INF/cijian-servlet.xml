@@ -46,15 +46,15 @@
         <property name="attributesMap">
             <map>
                 <entry key="getUser">
-                       <bean class="us.cijian.autumn.module.UserGetterModelEx" />
+                       <bean class="us.cijian.autumn.plugins.freemarker.UserGetterModelEx" />
                 </entry>
                 <entry key="getMenuMapping">
-                    <bean class="us.cijian.autumn.module.MenuMappingModelEx" />
+                    <bean class="us.cijian.autumn.plugins.freemarker.MenuMappingModelEx" />
                 </entry>
             </map>
         </property>
     </bean>
-    <bean id="securedInterceptor" class="us.cijian.autumn.module.SecuredInterceptor"></bean>
+    <bean id="securedInterceptor" class="us.cijian.autumn.bean.SecuredInterceptor"></bean>
     <aop:config>
            <aop:pointcut id="securedPoint" expression="@annotation(org.springframework.web.bind.annotation.RequestMapping)" />
            <aop:advisor advice-ref="securedInterceptor" pointcut-ref="securedPoint" />

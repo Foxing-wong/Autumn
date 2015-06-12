@@ -1,13 +1,13 @@
 package us.cijian.autumn.service;
 
 import com.alibaba.fastjson.JSON;
-import us.cijian.autumn.module.Plugin;
-import us.cijian.autumn.module.Wechat;
-import us.cijian.autumn.module.AbstractTextPlugin;
+import us.cijian.autumn.enums.Plugin;
+import us.cijian.autumn.enums.Wechat;
+import us.cijian.autumn.plugins.AbstractTextPlugin;
 import us.cijian.autumn.pojo.Message;
 import us.cijian.autumn.pojo.TextMessage;
 import us.cijian.autumn.utils.MessageUtils;
-import us.cijian.autumn.module.TuringPlugin;
+import us.cijian.autumn.plugins.TuringPlugin;
 
 import javax.servlet.http.HttpServletRequest;
 

@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.plugins.freemarker;
 
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;

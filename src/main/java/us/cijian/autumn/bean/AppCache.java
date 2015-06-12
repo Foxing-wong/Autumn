@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.bean;
 
 import org.apache.commons.lang3.StringUtils;
 

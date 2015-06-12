@@ -1,6 +1,9 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.enums;
 
 import org.apache.commons.lang3.StringUtils;
+import us.cijian.autumn.plugins.AbstractTextPlugin;
+import us.cijian.autumn.plugins.RiddlePlugin;
+import us.cijian.autumn.plugins.TuringPlugin;
 
 /**
  * Created by MurphyL on 2015/5/17.

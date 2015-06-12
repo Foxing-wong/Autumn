@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.enums;
 
 import java.util.ArrayList;
 import java.util.List;

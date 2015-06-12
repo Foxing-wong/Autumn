@@ -1,6 +1,6 @@
 package us.cijian.autumn.pojo;
 
-import us.cijian.autumn.module.TuringPlugin;
+import us.cijian.autumn.plugins.TuringPlugin;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

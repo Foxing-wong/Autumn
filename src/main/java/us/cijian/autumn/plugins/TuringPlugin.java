@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.plugins;
 
 import com.alibaba.fastjson.JSON;
 import us.cijian.autumn.pojo.Message;

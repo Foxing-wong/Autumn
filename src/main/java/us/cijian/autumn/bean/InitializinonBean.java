@@ -1,10 +1,12 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.bean;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 import us.cijian.autumn.mapper.SettingsMapper;
+import us.cijian.autumn.enums.Privileges;
+import us.cijian.autumn.enums.Wechat;
 import us.cijian.autumn.pojo.KV;
 import us.cijian.autumn.pojo.Menu;
 import us.cijian.autumn.pojo.MenuPack;

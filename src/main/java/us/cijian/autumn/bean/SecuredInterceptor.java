@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.bean;
 
 import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
@@ -6,6 +6,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import us.cijian.autumn.exception.NoPrivilegesException;
+import us.cijian.autumn.enums.Role;
 
 /**
  * Created by MurphyL on 5/24/2015.

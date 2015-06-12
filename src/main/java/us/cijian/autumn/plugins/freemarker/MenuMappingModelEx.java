@@ -1,8 +1,8 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.plugins.freemarker;
 
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
-import org.apache.shiro.SecurityUtils;
+import us.cijian.autumn.bean.AppCache;
 
 import java.util.List;
 

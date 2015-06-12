@@ -1,4 +1,4 @@
-package us.cijian.autumn.module;
+package us.cijian.autumn.bean;
 
 import org.springframework.ui.ExtendedModelMap;
 import org.springframework.ui.Model;
